@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { useCartStore } from "@/store/cart-store";
 
-interface Props { 
+interface Props {
   product: Stripe.Product;
 }
 
@@ -49,11 +49,17 @@ export const ProductDetail = ({ product }: Props) => {
           </p>
         )}
         <div className="flex items-center space-x-4">
-          <Button variant="outline" onClick={() => removeItem(product.id)}>
+          <Button
+            variant="outline"
+            className="cursor-pointer"
+            onClick={() => removeItem(product.id)}
+          >
             –
           </Button>
           <span className="text-lg font-semibold">{quantity}</span>
-          <Button onClick={onAddItem}>+</Button>
+          <Button onClick={onAddItem} className="cursor-pointer">
+            +
+          </Button>
         </div>
       </div>
     </div>
